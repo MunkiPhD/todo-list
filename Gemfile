@@ -8,11 +8,20 @@ gem 'sqlite3'
 # gem  'pg'
 # gem 'postgres'
 
+gem 'devise'
+
 group :development, :test do
 gem "capybara"
 gem "rspec-rails", ">= 2.0.1"
 # gem 'ruby-debug'
 # gem 'ruby-debug19', :require => 'ruby-debug'
+  gem 'cucumber-rails'
+end
+
+group :test do
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'database_cleaner'
 end
 
 
