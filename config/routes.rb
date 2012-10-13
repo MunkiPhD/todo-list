@@ -1,8 +1,11 @@
 RailsQuiz::Application.routes.draw do
- authenticated :user do
+
+
+  authenticated :user do
     root :to => "home#index" 
   end
 
+  #devise_for :user, :controllers => { :registrations => "registrations" }
   devise_for :users
 
   root :to => "home#index"
