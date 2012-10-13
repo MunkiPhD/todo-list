@@ -1,20 +1,20 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.7'
+gem 'rails'
 gem "jquery-rails"
 
-# gem 'mysql2'
 gem 'sqlite3'
-# gem  'pg'
-# gem 'postgres'
-
 gem 'devise'
 
+group :assets do
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
+end
+
 group :development, :test do
-gem "capybara"
-gem "rspec-rails", ">= 2.0.1"
-# gem 'ruby-debug'
-# gem 'ruby-debug19', :require => 'ruby-debug'
+  gem "capybara"
+  gem "rspec-rails", ">= 2.0.1"
 end
 
 group :test do
