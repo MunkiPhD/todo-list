@@ -36,11 +36,7 @@ class ItemController < ApplicationController
 
   def edit
     @item = current_user.items.find_by_id(params[:id])
-     unless @item.nil?
-      respond_with(@item)
-     else 
-       redirect_to item_index_path
-     end
+    @item.nil? ? ( redirect_to item_index_path ) : ( respond_with @item )
   end
 
 

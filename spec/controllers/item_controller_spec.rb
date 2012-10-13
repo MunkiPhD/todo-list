@@ -31,14 +31,7 @@ describe ItemController do
     it "redirects to index if you try to view an item that doesnt exist/belong to the user" do
       user = FactoryGirl.create(:user_with_items, items_count: 1)
       user2 = FactoryGirl.create(:user_with_items, items_count: 1)
-
       sign_in user
-
-      # user = FactoryGirl.create(:user)
-      # item = FactoryGirl.create(:item, user: user)
-      # item2 = FactoryGirl.create(:item, user: @user)
-      # get :show, :id => item.id
-
       get :show, :id => user2.items.first.id
       response.should redirect_to(item_index_path)
     end
