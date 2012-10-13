@@ -14,7 +14,16 @@ describe Item do
       FactoryGirl.build(:item, description: "a"*76).should_not be_valid
     end
 
-    it "must have a number (or priority)"
+    it "must have a number (or priority)" do
+      item = FactoryGirl.create(:item, number: nil)
+      item.number.should_not == nil
+    end
 
+    it "increases the number for each item" do
+      user = FactoryGirl.create(:user)
+      item = FactoryGirl.create(:item, user: user)
+      item2 = FactoryGirl.create(:item, user: user)
+      item.number.should < item2.number
+    end
   end
 end

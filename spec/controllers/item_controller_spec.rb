@@ -11,34 +11,36 @@ describe ItemController do
     it "returns http success" do
       get 'index'
       response.should be_success
+
     end
 
     it "assigns all the users items to @items" do
       item = FactoryGirl.create(:item)
       get :index
-      assigns(:items).should == item
+      assigns(:items).should == [item]
     end
   end
 
   describe "GET 'show'" do
-    it "returns http success" do
-      get 'show'
-      response.should be_success
-    end
-
     it "gets the requested item based on id" do
-      item = FactoryGirl.create(:item)
-      get :show, :id => item.id
-      assigns(:item).should == item
+      item = FactoryGirl.create(:item, user: @user)
+      get :show, :id => item
+      assigns(:item).should eq(item)
     end
 
-    it "cannot get another user's item" do
-      user = FactoryGirl.create(:user)
-      item = FactoryGirl.create(:item, user: user)
-      item2 = FactoryGIrl.create(:item, user: @user)
+    it "redirects to index if you try to view an item that doesnt exist/belong to the user" do
+      user = FactoryGirl.create(:user_with_items, items_count: 1)
+      user2 = FactoryGirl.create(:user_with_items, items_count: 1)
 
-      get :show, :id => item.id
-      assigns(:item).should_not == item
+      sign_in user
+
+      # user = FactoryGirl.create(:user)
+      # item = FactoryGirl.create(:item, user: user)
+      # item2 = FactoryGirl.create(:item, user: @user)
+      # get :show, :id => item.id
+
+      get :show, :id => user2.items.first.id
+      response.should redirect_to(item_index_path)
     end
   end
 
@@ -51,6 +53,11 @@ describe ItemController do
     it "creates an empty item" do
       get :new
       assigns(:item).should be_a_new(Item)
+    end
+
+    it "renders the new template" do
+      get :new
+      response.should render_template :new
     end
   end
 
@@ -65,7 +72,7 @@ describe ItemController do
       it "redirects to show page item" do
         item = FactoryGirl.attributes_for(:item)
         post :create, :item => item
-        responds.should redirect_to(item)
+        response.should redirect_to(Item.last)
       end
     end
 
@@ -102,5 +109,4 @@ describe ItemController do
       it "does not delete the item"
     end
   end
-
 end
