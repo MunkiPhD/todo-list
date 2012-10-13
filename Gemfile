@@ -20,11 +20,11 @@ group :development, :test do
   gem 'libnotify'
   gem "rspec-rails", ">= 2.0.1"
   gem 'rb-inotify'
-  gem 'spork', "> 0.9.0.rc"	
+  gem 'spork-rails'
 end
 
 group :test do
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', "1.1.0", require: false
   gem "capybara"
   gem "database_cleaner"
   gem 'database_cleaner'
