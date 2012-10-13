@@ -1,5 +1,3 @@
-require 'faker'
-
 FactoryGirl.define do
   factory :user do
     sequence(:email) { |n| "johnSmith#{n}@email.com" }

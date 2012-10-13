@@ -1,23 +1,25 @@
 TodoList
 ========
+A todo-list application with the following capabilities:
 
+Specs
+=======
+* Login and account creation (completed)
+* RSpec & Cucumber Tests (not completed)
 
-  Please create a todo-list application with the following capabilities:
-
-* Login and account creation    
-* RSpec & Cucumber Tests
-* Bonus points for incorporating      
-    * Ajax(Drag & Drop to-do items)
-    * CSS
-    * Nice templates/layouts
-    * Updating THIS README 
-      * See: [Tom Preston Werner](http://tom.preston-werner.com/2010/08/23/readme-driven-development.html)
-      * See: [Matt Parker](http://www.slideshare.net/moonmaster9000/readme-driven-development "README Presentation")
+Uses
+========
+* Ajax (Drag & Drop of to-do items)
+* CSS
+* Nice templates/layouts
         
-
 Notes:
 ------
+- I have never used Cucumber before, so there are no cucumber tests
+- Started late, didn't realize I would be granted permissions so quickly
+- You can only create a user (you can't delete, update, or edit)
+- Extremely bare bones
+- Not completed :(
 
-Default Database is SQLite3, but you can use any other one you like, e.g. MySQL, PostgreSQL
 
-After 4 hours your github access will be turned off for this repo.
+
