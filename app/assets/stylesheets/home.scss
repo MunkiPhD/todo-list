@@ -1,0 +1,24 @@
+// Need to include css Reset
+
+body {
+  color: #666;
+
+  a, a:active, a:visited {
+    color: #444;
+  }
+}
+
+.main {
+  border:1px solid #ccc;
+  margin:0 auto;
+  padding:20px;
+  width:600px;
+}
+
+.user-panel {
+  border:1px solid #ccc;
+  padding:10px;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}

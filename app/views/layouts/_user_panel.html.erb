@@ -1,7 +1,6 @@
 <div class="user-panel">
 <% if current_user %>
-  <%= link_to "Sign Out", :controller => "devise/sessions", :action => "destroy" %> | 
-  <%= link_to "To Do List", items_path %>
+  <%= link_to "Sign Out", :controller => "devise/sessions", :action => "destroy" %>
 <% else %>
  <%= link_to "Sign Up", :controller => "devise/registrations", :action => "new" %> | 
  <%= link_to "Sign In", :controller => "devise/sessions", :action => "create" %>
