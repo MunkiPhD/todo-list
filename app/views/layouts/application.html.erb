@@ -4,9 +4,11 @@
   <title>Rails Quiz</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>
 <body>
+<%= render "layouts/user_panel" %>
 <div class="main">
 <%= yield %>
 </div>
