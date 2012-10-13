@@ -1,8 +1,2 @@
 <h1>To Do List - Home</h1>
-<% if current_user %>
-  <%= link_to "Sign Out", :controller => "devise/sessions", :action => "destroy" %> | 
-  <%= link_to "To Do List", items_path %>
-<% else %>
- <%= link_to "Sign Up", :controller => "devise/registrations", :action => "new" %> | 
- <%= link_to "Sign In", :controller => "devise/sessions", :action => "create" %>
-<% end %>
+<%= render "layouts/user_panel" %>
