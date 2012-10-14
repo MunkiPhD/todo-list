@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 describe "Account management" do
   it "creates a new user" do
     user = FactoryGirl.build(:user)

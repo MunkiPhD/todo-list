@@ -33,7 +33,7 @@ describe ItemsController do
       user2 = FactoryGirl.create(:user_with_items, items_count: 1)
       sign_in user
       get :show, :id => user2.items.first.id
-      response.should redirect_to(item_index_path)
+      response.should redirect_to(items_path)
     end
   end
 
@@ -67,7 +67,7 @@ describe ItemsController do
     it "redirects the user on an item that doesnt belongs to the current user" do
       user = FactoryGirl.create(:user_with_items)
       get :edit, id: user.items.last
-      response.should redirect_to item_index_path
+      response.should redirect_to items_path
     end
 
     it "renders the edit template" do
@@ -84,10 +84,10 @@ describe ItemsController do
         }.to change(Item, :count).by(1)
       end
 
-      it "redirects to show page item" do
+      it "redirects to index page" do
         item = FactoryGirl.attributes_for(:item)
         post :create, :item => item
-        response.should redirect_to(Item.last)
+        response.should redirect_to(items_path)
       end
     end
 
@@ -127,7 +127,7 @@ describe ItemsController do
         sign_in user
         item = user2.items.first
         put :update, id: item.id, item: FactoryGirl.attributes_for(:item)
-        response.should redirect_to item_index_path
+        response.should redirect_to items_path
       end
     end
 
@@ -167,7 +167,7 @@ describe ItemsController do
 
       it "redirects to the index" do
         delete :destroy, id: @item
-        response.should redirect_to item_index_path
+        response.should redirect_to items_path
       end
     end
 
@@ -184,7 +184,7 @@ describe ItemsController do
 
       it "redirects to the index page" do
         delete :destroy, id: @user.items.first
-        response.should redirect_to item_index_path
+        response.should redirect_to items_path
       end
     end
   end

@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
   def show
     @item = current_user.items.find_by_id(params[:id])
     if @item.nil?
-      redirect_to item_index_path
+      redirect_to items_path
     else
       respond_with(@item)
     end
@@ -27,7 +27,8 @@ class ItemsController < ApplicationController
     @item = current_user.items.build(params[:item])
 
     if @item.save
-      redirect_to :action => "show", :id => @item.id
+      redirect_to items_path
+      #redirect_to :action => "show", :id => @item.id
     else
       render :new
     end
@@ -36,7 +37,7 @@ class ItemsController < ApplicationController
 
   def edit
     @item = current_user.items.find_by_id(params[:id])
-    @item.nil? ? ( redirect_to item_index_path ) : ( respond_with @item )
+    @item.nil? ? ( redirect_to items_path ) : ( respond_with @item )
   end
 
 
@@ -50,7 +51,7 @@ class ItemsController < ApplicationController
         render :edit
       end
     else
-      redirect_to item_index_path
+      redirect_to items_path
     end
   end
 

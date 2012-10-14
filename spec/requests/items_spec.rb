@@ -54,8 +54,7 @@ describe "Todo item management" do
     click_button "Create Item"
 
     page.should have_content(random_text)
-    click_link "Go to list"
-    page.should have_content(random_text)
+    page.should have_content("To-Do List")
   end
 
 
