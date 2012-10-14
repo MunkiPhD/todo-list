@@ -1,7 +1,7 @@
 require 'spec_helper'
 # although, the items should probably be displayed on the home controller, we'll leave that as it is
 
-describe ItemController do
+describe ItemsController do
   before(:each) do
     @user ||= FactoryGirl.create(:user)
     sign_in @user

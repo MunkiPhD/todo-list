@@ -18,8 +18,4 @@ describe 'visiting the homepage' do
       page.should have_content('Sign Up')
     end
   end
-
-  context "authorized users" do
-    it "has a sign out link"
-  end
 end

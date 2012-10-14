@@ -1,4 +1,4 @@
-class ItemController < ApplicationController
+class ItemsController < ApplicationController
   before_filter :authenticate_user!
   respond_to :html, :json
 
@@ -59,9 +59,9 @@ class ItemController < ApplicationController
     @item = current_user.items.find_by_id(params[:id])
     unless @item.nil? 
       @item.destroy
-      redirect_to item_index_path
+      redirect_to items_path
     else
-      redirect_to item_index_path
+      redirect_to items_path
     end
   end
 end

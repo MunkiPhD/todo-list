@@ -1,0 +1,4 @@
+<h1>Viewing Specific Item</h1>
+<p><%= @item.description %></p><%= link_to "Edit", edit_item_path(@item) %> | <%= link_to "Delete", item_path(@item), :method => :delete %>
+<hr/>
+<%= link_to "Go to list", items_path %>
