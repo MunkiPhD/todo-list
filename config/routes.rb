@@ -1,7 +1,7 @@
 RailsQuiz::Application.routes.draw do
 
+  resources :item
   authenticated :user do
-    resources :item
     root :to => "home#index" 
   end
 
