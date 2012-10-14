@@ -1,4 +1,6 @@
 <p class="todo-item">
   <%= item.description %>
-  <%= link_to "Edit", edit_item_path(item) %> | <%= link_to "Delete", item_path(item), :method => :delete %>
+  <span class="item-controls">
+    <%= link_to "Edit", edit_item_path(item) %> | <%= link_to "Delete", item_path(item), :method => :delete %>
+  </span>
 </p>
