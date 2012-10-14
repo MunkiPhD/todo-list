@@ -3,8 +3,8 @@ source 'http://rubygems.org'
 gem 'rails', '3.2.8'
 
 gem 'devise'
-gem 'jquery-rails'
 gem 'sqlite3'
+gem 'jquery-rails'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
