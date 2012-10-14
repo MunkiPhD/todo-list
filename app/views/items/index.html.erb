@@ -1,9 +1,11 @@
-<h1>To-Do List</h1>
-<% unless @items.count == 0 %>
-  <ul>
+<div class="items-index">
+  <h1>To-Do List</h1>
+  <% unless @items.count == 0 %>
+    <ul>
     <% @items.each do |item| %>
-      <li><%= link_to item.description, item %>
-    <% end %>
+      <li><%= render "item_display", item: item %>
+  <% end %>
   </ul>
 <% end %>
-<%= link_to "Add new to-do item", new_item_path %>
+  <%= link_to "Add new to-do item", new_item_path %>
+</div>

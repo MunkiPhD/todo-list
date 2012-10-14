@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 describe "Todo item management" do
   before(:each) do
     # I don't know how else to log the user in through a request spec using Devise
@@ -90,5 +92,23 @@ describe "Todo item management" do
     click_button "Update Item"
 
     page.should have_content("random text")
+  end
+
+  it "allows a user to go to the edit page from the index" do
+    item = @user.items.first
+    visit '/items'
+    page.should have_content("Edit")
+    click_link "Edit"
+    page.should have_selector("input", type: "text", name: "item[description]", value: item.description)
+    page.should have_button("Update Item")
+  end
+
+  it "allows a user to delete the item from the index" do
+    item = @user.items.first
+    visit '/items'
+    page.should have_content("Delete")
+    page.should have_content(item.description)
+    click_link "Delete"
+    page.should_not have_content(item.description)
   end
 end
