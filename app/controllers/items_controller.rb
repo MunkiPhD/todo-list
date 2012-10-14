@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   respond_to :html, :json
 
   def index
-    @items = current_user.items
+    @items = current_user.items.order("number ASC")
     respond_with(@items)
   end
 

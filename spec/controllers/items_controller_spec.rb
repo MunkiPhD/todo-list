@@ -19,6 +19,15 @@ describe ItemsController do
       get :index
       assigns(:items).should == [item]
     end
+
+      it "assigns the items in the order they were added" do
+        apple = FactoryGirl.create(:item, user: @user)
+        orange = FactoryGirl.create(:item, user: @user)
+        lime = FactoryGirl.create(:item, user: @user)
+        
+        get :index
+        assigns(:items).should == [apple, orange, lime]
+      end
   end
 
   describe "GET 'show'" do
@@ -89,6 +98,7 @@ describe ItemsController do
         post :create, :item => item
         response.should redirect_to(items_path)
       end
+
     end
 
     context "with invalid attributes" do
