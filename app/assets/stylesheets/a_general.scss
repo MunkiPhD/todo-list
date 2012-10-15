@@ -1,0 +1,11 @@
+$border-color: #ccc;
+$border-color-dark: #888;
+$hover: #666;
+
+// Use the following for drop shadows
+@mixin drop-shadow($size: 2px, $size2: 4px, $opacity: 0.20) {
+  position:relative;
+  box-shadow: $size $size $size2 rgba(0, 0, 0, $opacity);
+  -moz-box-shadow: $size $size $size2 rgba(0, 0, 0, $opacity);
+  -webkit-box-shadow: $size $size $size2 rgba(0, 0, 0, $opacity);
+}

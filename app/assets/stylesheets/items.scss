@@ -1,18 +1,17 @@
-@mixin drop-shadow($size: 5px, $size2: 6px, $opacity: 0.30) {
-  position:relative;
-  box-shadow: $size $size $size2 rgba(0, 0, 0, $opacity);
-  -moz-box-shadow: $size $size $size2 rgba(0, 0, 0, $opacity);
-  -webkit-box-shadow: $size $size $size2 rgba(0, 0, 0, $opacity);
-}
+@import 'a_general';
 
 .todo-item {
   padding:10px;
-  border:1px solid #ccc;
+  border:1px solid $border-color;
   margin:2px;
   background-color:#fff;
 
   .item-controls {
     float:right;
+  }
+  
+  &:hover {
+    @include drop-shadow(2px, 3px, 0.10);
   }
 }
 
@@ -31,8 +30,8 @@
 }
 
 .ui-item-placeholder {
-  border:2px dashed #888;
-  background-color:#ede5ce;
+  border:2px dashed $border-color-dark;
+  background-color:#ededed;
 }
 
 .ui-draggable-dragging {

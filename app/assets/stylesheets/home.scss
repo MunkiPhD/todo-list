@@ -1,27 +1,38 @@
-// Need to include css Reset
+@import 'a_general';
 
 body {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 18px;
   color: #666;
 
   a, a:active, a:visited {
     color: #444;
+    text-decoration: none;
+   
+    &:hover {
+      color: #777;
+    }
   }
 }
 
 .main {
-  border:1px solid #ccc;
+  border:1px solid $border-color;
   margin:0 auto;
   padding:20px;
   width:600px;
+  @include drop-shadow(5px, 8px, 0.05);
 }
 
 .user-panel {
-  border:1px solid #ccc;
+  border:1px solid $border-color;
   padding:10px;
   position: absolute;
   top: 2px;
   right: 2px;
+  background-color: #fff;
 }
+
 #messages {
   display:hidden;
   position: relative;
