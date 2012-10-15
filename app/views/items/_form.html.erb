@@ -1,4 +1,14 @@
+<% if @item.errors.any? %>  
+  <h2>Errors</h2>
+  <div id="errorExplanation">  
+    <ul>  
+      <% @item.errors.full_messages.each do |msg| %>  
+        <li><%= msg %></li>  
+      <% end %>  
+    </ul>
+  </div>
+<% end %>
 <%= form_for(@item) do |f| %>
   <%= f.text_field :description, :placeholder => "What do you need to do?" %>
-  <%= f.submit %>
+<%= f.submit %>
 <% end %>

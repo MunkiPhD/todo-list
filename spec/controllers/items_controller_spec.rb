@@ -118,7 +118,6 @@ describe ItemsController do
         post :create, :item => item
         response.should redirect_to(items_path)
       end
-
     end
 
     context "with invalid attributes" do
@@ -127,12 +126,16 @@ describe ItemsController do
         post :create, :item => {}
         response.should render_template('new')
       end
+
+      it "displays errors on the form" do
+        item = FactoryGirl.build(:item, description: "r"*76)
+        post :create, item
+        response.should render_template('new')
+        assigns(:item).errors.count.should == 1
+      end
     end
   end
 
-  describe "PUT 'update_order'" do
-    it "re-orders the list and saves it"
-  end
 
   describe "PUT 'update'" do
     context "with valid attributes" do
