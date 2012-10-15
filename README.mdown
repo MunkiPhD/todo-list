@@ -1,25 +1,27 @@
-TodoList
+A To-Do List Web App
 ========
-A todo-list application with the following capabilities:
+A todo-list application that allows a user to create, edit, delete, and re-order the items on their list.
 
 Specs
 =======
-* Login and account creation (completed)
-* RSpec & Cucumber Tests (not completed)
-
-Uses
-========
-* Ajax (Drag & Drop of to-do items)
+* Login and account creation
+* RSpec & Cucumber Tests
+* AJAX Drag'n'Drop
 * CSS
-* Nice templates/layouts
+
         
 Notes:
 ------
-- I have never used Cucumber before, so there are no cucumber tests
-- Started late, didn't realize I would be granted permissions so quickly
-- You can only create a user (you can't delete, update, or edit)
-- Extremely bare bones
-- Not completed :(
+- RSpec tests are not great, but I am very new to them at this time.
+- I have never used Cucumber before, so there are no cucumber tests.
+- Used Devise for authentication, never used before.
+- No CSS Reset was employed, so rendering across browsers may differ.
+- CSS is very simple, no need for glitter and flash.
+- Started late on the timeframe.
+- You can only create a user (you can't delete, update, or edit, as it was not specified in the specs).
+- AJAX is simply used for drag and drop on items (as per spec). It is not employed on item create/edit/delete.
+- Updated the app to the lastest version of Rails
+- On login it takes you to the homepage, not the items index page. This allows for extensibility of possible future features
 
 
 
