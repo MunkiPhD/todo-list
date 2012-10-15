@@ -27,6 +27,18 @@ describe "Todo item management" do
       visit '/items'
     end
 
+    it "informs the user they have no items if none exist" do
+      @user.items.each do |item|
+        item.destroy
+      end
+
+      @user.items.count.should == 0
+      @user.reload
+
+      visit '/items'
+      page.should have_content("No items on your to-do list!")
+    end
+
     it "displays a link to add an item" do
       page.should have_link("Add new to-do item")
     end

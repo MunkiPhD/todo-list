@@ -9,3 +9,7 @@ $hover: #666;
   -moz-box-shadow: $size $size $size2 rgba(0, 0, 0, $opacity);
   -webkit-box-shadow: $size $size $size2 rgba(0, 0, 0, $opacity);
 }
+
+input {
+  padding:5px;
+}
