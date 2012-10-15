@@ -1,9 +1,9 @@
 <div class="items-index">
   <h1>To-Do List</h1>
   <% unless @items.count == 0 %>
-    <ul>
+    <ul id="item-container">
     <% @items.each do |item| %>
-      <li><%= render "item_display", item: item %>
+      <li id=<%= "item_#{item.id}" %>><%= render "item_display", item: item %>
   <% end %>
   </ul>
 <% end %>

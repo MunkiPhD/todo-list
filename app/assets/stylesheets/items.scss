@@ -1,7 +1,15 @@
+@mixin drop-shadow($size: 5px, $size2: 6px, $opacity: 0.30) {
+  position:relative;
+  box-shadow: $size $size $size2 rgba(0, 0, 0, $opacity);
+  -moz-box-shadow: $size $size $size2 rgba(0, 0, 0, $opacity);
+  -webkit-box-shadow: $size $size $size2 rgba(0, 0, 0, $opacity);
+}
+
 .todo-item {
   padding:10px;
   border:1px solid #ccc;
   margin:2px;
+  background-color:#fff;
 
   .item-controls {
     float:right;
@@ -14,4 +22,20 @@
     margin:5;
     padding:10px;
   }
+  li {
+    height:45px;
+    //border:1px solid red;
+    margin:4px;
+    overflow:hidden;
+  }
+}
+
+.ui-item-placeholder {
+  border:2px dashed #888;
+  background-color:#ede5ce;
+}
+
+.ui-draggable-dragging {
+  @include drop-shadow();
+  z-order:1000;
 }

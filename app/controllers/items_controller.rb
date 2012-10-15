@@ -41,6 +41,24 @@ class ItemsController < ApplicationController
   end
 
 
+  def update_list
+    counter = 0
+    params[:item].each do |number|
+      item = current_user.items.find_by_id(number)
+      unless item.nil?
+        item.number = number
+        item.save
+      end
+      counter += 1
+    end
+
+    respond_to do |format|
+      format.html { redirect_to :index }
+      format.json { render :json => { :status => "success", :message => "List updated" } }
+    end
+  end
+
+
   def update
     @item = current_user.items.find_by_id(params[:id])
 

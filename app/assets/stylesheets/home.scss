@@ -22,3 +22,14 @@ body {
   top: 2px;
   right: 2px;
 }
+#messages {
+  display:hidden;
+  position: relative;
+  right: 0px;
+  bottom: 0px;
+  float: right;
+}
+
+.success {
+  color:green;
+}

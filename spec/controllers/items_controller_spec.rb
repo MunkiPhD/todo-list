@@ -20,15 +20,17 @@ describe ItemsController do
       assigns(:items).should == [item]
     end
 
-      it "assigns the items in the order they were added" do
-        apple = FactoryGirl.create(:item, user: @user)
-        orange = FactoryGirl.create(:item, user: @user)
-        lime = FactoryGirl.create(:item, user: @user)
-        
-        get :index
-        assigns(:items).should == [apple, orange, lime]
-      end
+    it "assigns the items in the order they were added" do
+      apple = FactoryGirl.create(:item, user: @user)
+      orange = FactoryGirl.create(:item, user: @user)
+      lime = FactoryGirl.create(:item, user: @user)
+
+      get :index
+      assigns(:items).should == [apple, orange, lime]
+    end
+
   end
+
 
   describe "GET 'show'" do
     it "gets the requested item based on id" do
@@ -85,6 +87,24 @@ describe ItemsController do
     end 
   end
 
+  describe "POST 'update_list'" do
+    it "received json_data and orders the items correctly" do
+      apple = FactoryGirl.create(:item)
+      orange = FactoryGirl.create(:item)
+      lime = FactoryGirl.create(:item)
+
+      json = { :format => 'json', :item => [ apple.id, lime.id, orange.id ]}
+      post :update_list, json
+      response.status.should eq 200
+
+      expected_response = {
+        :status => "success",
+        :message => "List updated"
+      }.to_json
+      response.body.should == expected_response
+    end
+  end
+
   describe "POST 'create'" do
     context "with valid attributes" do
       it "creates a new item" do
@@ -108,6 +128,10 @@ describe ItemsController do
         response.should render_template('new')
       end
     end
+  end
+
+  describe "PUT 'update_order'" do
+    it "re-orders the list and saves it"
   end
 
   describe "PUT 'update'" do

@@ -1,6 +1,9 @@
 RailsQuiz::Application.routes.draw do
 
+  match 'items/update_list' => "items#update_list"
   resources :items
+  
+
   authenticated :user do
     root :to => "home#index" 
   end

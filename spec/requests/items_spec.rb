@@ -14,6 +14,16 @@ describe "Todo item management" do
     click_button 'Sign in'
   end
 
+  it "assigns the correct IDs to each item" do
+    apple = FactoryGirl.create(:item)
+
+    visit '/items'
+    text = "item_#{apple.id}"
+    find_by_id(text).value == text
+  end
+
+  it "displays the items correctly on refresh after changing the order"
+
 
   it "displays a link to add an item" do
     visit '/items'
